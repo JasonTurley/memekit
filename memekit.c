@@ -2,6 +2,10 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/moduleparam.h>
+#include <asm/unistd.h> 
+#include <linux/syscalls.h>
+#include <asm/amd_nb.h>
+#include <linux/highuid.h>
 
 /* Macros for disabling and enabling the Write Protected (read only)
  * bit in the control register cr0.
