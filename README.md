@@ -51,3 +51,4 @@ Unload the module to return the system to normal:
 
 - [Modern Linux Rootkits 101](http://turbochaos.blogspot.com/2013/09/linux-rootkits-101-1-of-3.html)
 - [The Linux Kernel Module Programming Guide](https://tldp.org/LDP/lkmpg/2.6/html/index.html)
+- [WP: Safe or Not](http://vulnfactory.org/blog/2011/08/12/wp-safe-or-not/)
