@@ -6,8 +6,13 @@ The rootkit hijacks the open system call, causing the kernel to open the specifi
 meme file instead of any other PNG file. It currently only works on files ending in ".png" but
 the source code can easily be modified to support other file extensions.
 
-This is a silly tool I created to learn more about Linux rootkits. It is inspired by
-[kernelroll](https://github.com/fpletz/kernelroll) by [fpletz](https://github.com/fpletz).
+This is a silly tool I created to learn more about Linux rootkits. It was compiled and run on a
+system running Ubuntu 20.04 with Linux kernel version 5.9. 
+
+
+It is inspired by
+[kernelroll](https://github.com/fpletz/kernelroll) by [fpletz](https://github.com/fpletz) which is a
+rootkit for an older kernel version.
 
 ## Functionality
 
