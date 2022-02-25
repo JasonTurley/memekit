@@ -66,18 +66,7 @@ asmlinkage int (*original_open)(const char *pathname, int flags, mode_t mode);
  */
 asmlinkage int meme_open(const char *pathname, int flags, mode_t mode)
 {
-	/*
-	size_t len = strlen(pathname);
-	const char *extension;
-	int fd;
-
-	extension = pathname + len - 4;
-
-	printk(KERN_DEBUG  "extension = %s\n", extension);
-
-	// if so, open our memefile instead
-		// otherwise, open the non-PNG file
-	*/
+	/* TODO: implement me. Currently just stub code for debugging */
 	printk(KERN_DEBUG  "memekit: inside meme_open\n");
 	return original_open(pathname, flags, mode);
 }
@@ -100,11 +89,14 @@ static int __init memekit_init(void)
 
 	printk(KERN_DEBUG "memekit: found sys_call_table at address %lx\n", (unsigned long)sys_call_table);
 
-    /* Disable write protect so we can overwrite the syscall table */
+   	/* Disable write protect so we can overwrite the syscall table */
 	disable_write_protected_bit();
 	
 	/* Hijack the legit open system call with our meme open function */
 	original_open = (int(*)(const char *, int, mode_t))sys_call_table[__NR_open]; 
+	
+	/* FIXME: currently, writing to the sys_call_table causes a page fault. In past commits I marked 
+	 * the table as read-write, but it still generated a page fault :( */
 	sys_call_table[__NR_open] = (void *) meme_open;
 	
 	printk(KERN_DEBUG "memekit: original_open at address %lx\n", (unsigned long)original_open);
